@@ -20,7 +20,7 @@ public:
 class dokter {
 public:
 	string nama;
-	vector<pasien*> daftar_dokter;
+	vector<pasien*> daftar_pasien;
 	
 	dokter(string pNama) :nama(pNama) {
 		cout << "Dokter \"" << nama << "\" ada \n";
@@ -42,4 +42,8 @@ void pasien::cetakDokter() {
 		cout << a->nama << "\n";
 	}
 	cout << endl;
+}
+void dokter::tambahPasien(pasien* pPasien) {
+	daftar_pasien.push_back(pPasien);
+	pPasien->tambahDokter(this);
 }
